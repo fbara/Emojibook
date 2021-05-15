@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		AD390ED6264F77E90084BD9F /* EmojibookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD390ED5264F77E90084BD9F /* EmojibookApp.swift */; };
-		AD390ED8264F77E90084BD9F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD390ED7264F77E90084BD9F /* ContentView.swift */; };
+		AD390ED8264F77E90084BD9F /* EmojibookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD390ED7264F77E90084BD9F /* EmojibookListView.swift */; };
 		AD390EDA264F77EC0084BD9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD390ED9264F77EC0084BD9F /* Assets.xcassets */; };
 		AD390EDD264F77EC0084BD9F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD390EDC264F77EC0084BD9F /* Preview Assets.xcassets */; };
+		AD390EE7264F7C1B0084BD9F /* EmojiDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD390EE6264F7C1B0084BD9F /* EmojiDetails.swift */; };
+		AD390EEB264F7D1F0084BD9F /* EmojiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD390EEA264F7D1F0084BD9F /* EmojiProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AD390ED2264F77E90084BD9F /* Emojibook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Emojibook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD390ED5264F77E90084BD9F /* EmojibookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojibookApp.swift; sourceTree = "<group>"; };
-		AD390ED7264F77E90084BD9F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AD390ED7264F77E90084BD9F /* EmojibookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojibookListView.swift; sourceTree = "<group>"; };
 		AD390ED9264F77EC0084BD9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD390EDC264F77EC0084BD9F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AD390EDE264F77EC0084BD9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD390EE6264F7C1B0084BD9F /* EmojiDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiDetails.swift; sourceTree = "<group>"; };
+		AD390EEA264F7D1F0084BD9F /* EmojiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				AD390ED5264F77E90084BD9F /* EmojibookApp.swift */,
-				AD390ED7264F77E90084BD9F /* ContentView.swift */,
+				AD390ED7264F77E90084BD9F /* EmojibookListView.swift */,
+				AD390EE6264F7C1B0084BD9F /* EmojiDetails.swift */,
+				AD390EEA264F7D1F0084BD9F /* EmojiProvider.swift */,
 				AD390ED9264F77EC0084BD9F /* Assets.xcassets */,
 				AD390EDE264F77EC0084BD9F /* Info.plist */,
 				AD390EDB264F77EC0084BD9F /* Preview Content */,
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD390ED8264F77E90084BD9F /* ContentView.swift in Sources */,
+				AD390ED8264F77E90084BD9F /* EmojibookListView.swift in Sources */,
+				AD390EEB264F7D1F0084BD9F /* EmojiProvider.swift in Sources */,
 				AD390ED6264F77E90084BD9F /* EmojibookApp.swift in Sources */,
+				AD390EE7264F7C1B0084BD9F /* EmojiDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
