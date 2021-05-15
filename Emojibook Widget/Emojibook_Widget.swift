@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        SimpleEntry(date: Date(), emojiDetails: EmojiProvider.random())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
+        let entry = SimpleEntry(date: Date(), emojiDetails: EmojiProvider.random())
         completion(entry)
     }
 
@@ -25,7 +25,7 @@ struct Provider: TimelineProvider {
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
+            let entry = SimpleEntry(date: entryDate, emojiDetails: EmojiProvider.random())
             entries.append(entry)
         }
 
@@ -36,13 +36,15 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
+    public let emojiDetails: EmojiDetails
 }
 
 struct Emojibook_WidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        // replace the default Text component and use our EmojiWidgetView
+        EmojiWidgetView(emojiDetails: entry.emojiDetails)
     }
 }
 
@@ -54,14 +56,16 @@ struct Emojibook_Widget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             Emojibook_WidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        // rename the widget to match the app.  only support the small widget.
+        .configurationDisplayName("Random Emojis")
+        .description("Display a widget with an emoji that is updated randomly.")
+        .supportedFamilies([.systemSmall])
     }
 }
 
 struct Emojibook_Widget_Previews: PreviewProvider {
     static var previews: some View {
-        Emojibook_WidgetEntryView(entry: SimpleEntry(date: Date()))
+        Emojibook_WidgetEntryView(entry: SimpleEntry(date: Date(), emojiDetails: EmojiProvider.random()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }
