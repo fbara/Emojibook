@@ -56,10 +56,10 @@ struct Emojibook_Widget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             Emojibook_WidgetEntryView(entry: entry)
         }
-        // rename the widget to match the app.  only support the small widget.
+        // rename the widget to match the app.
         .configurationDisplayName("Random Emojis")
         .description("Display a widget with an emoji that is updated randomly.")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
     }
 }
 
