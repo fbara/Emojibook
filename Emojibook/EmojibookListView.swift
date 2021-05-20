@@ -13,6 +13,9 @@ struct EmojibookListView: View {
     
     // boolean to determine if the sheet should be visible or not
     @State private var showingDetail: Bool = false
+    // to open the details sheet,
+    // keep track of the current emoji details visible in the sheet, if any
+    @State private var visibleEmojiDetails: EmojiDetails?
     
     var body: some View {
         NavigationView {
@@ -20,7 +23,7 @@ struct EmojibookListView: View {
                 ForEach(emojiData, content: { emojiDetails in
                     // handle taps on the row
                     Button(action: {
-                        showingDetail.toggle()
+                        visibleEmojiDetails = emojiDetails
                     }, label: {
                         EmojiItemView(emoji: emojiDetails.emoji, emojiName: emojiDetails.name)
                     })
@@ -36,6 +39,15 @@ struct EmojibookListView: View {
             .navigationBarTitle("Emojibook")
         }
         
+        .onOpenURL { url in
+            // try to find the EmojiDetails for the emoji that was tapped on the widget
+            guard let emojiDetails = emojiData.first(where: { $0.url == url }) else { return }
+            visibleEmojiDetails = emojiDetails
+        }
+        
+        .sheet(item: $visibleEmojiDetails, content: { emojiDetails in
+            EmojiDetailsView(emojiDetails: emojiDetails)
+        })
     }
 }
 

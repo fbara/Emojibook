@@ -50,6 +50,8 @@ struct SmallEmojiWidgetView: View {
                     .foregroundColor(.white)
             }
         }
+        // pass the specific emoji the deeplink url from the small widget
+        .widgetURL(emojiDetails.url)
     }
 }
 
