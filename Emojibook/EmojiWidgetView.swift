@@ -29,6 +29,11 @@ struct EmojiWidgetView: View {
     }
 }
 
+struct EmojiWidgetPlaceholderView: View {
+    var body: some View {
+        Color(UIColor.systemIndigo)
+    }
+}
 
 
 // define the UI of the widget
